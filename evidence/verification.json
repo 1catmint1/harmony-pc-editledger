@@ -1,0 +1,29 @@
+{
+  "hapSha256": "8c4d0ea0aa17b0262069d622c49c37ca30de14567aa172b731e8fd9752741d9b",
+  "signatureVerified": true,
+  "profileVerified": true,
+  "bundle": "com.editledger.track1",
+  "targetExecuted": true,
+  "revision": "r3",
+  "native": {
+    "codec": 21,
+    "fileStore": 11,
+    "productionSaveControls": 6,
+    "skipped": 0
+  },
+  "host": {
+    "codec": 21,
+    "fileStore": 11,
+    "productionSaveControls": 6
+  },
+  "gui": {
+    "sampleLoad": true,
+    "unchangedSaveBytePreserved": true
+  },
+  "scope": "community Electron frontend adaptation layer, not official Qt Notepadqq",
+  "publicSource": "new modules, controls, CodeMirror MIT assets and integration patch; inherited complete frontend and native runtime excluded",
+  "upstreamHead": "af84f88a6c4360937b9eefca5a59ba1d39603cd8",
+  "upstreamFrontendLicense": "undeclared",
+  "formalClaim": false,
+  "appsSubmitted": false
+}

@@ -1,0 +1,8 @@
+node_modules/
+**/store-tests/
+*.hap
+*.p12
+*.p7b
+*.cer
+*.so
+/build-candidate/

@@ -1,0 +1,12 @@
+{
+  "bundle": "com.editledger.track1",
+  "profileName": "EditLedger_Release_20261016",
+  "type": "release",
+  "distributionType": "app_gallery",
+  "profileSha256": "653e6f808050170092951958c229117175d11db7931560961531d90cf008f985",
+  "officialProfileVerified": true,
+  "certificateMatches": true,
+  "noDeviceBinding": true,
+  "allowedAcls": [],
+  "createdAt": "2026-10-15T20:30:17.145Z"
+}

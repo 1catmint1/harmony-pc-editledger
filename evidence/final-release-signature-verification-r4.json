@@ -1,0 +1,33 @@
+{
+  "bundle": "com.editledger.track1",
+  "version": "1.0.1",
+  "type": "release",
+  "distributionType": "app_gallery",
+  "noDeviceBinding": true,
+  "allowedAcls": [],
+  "signatureVerified": true,
+  "profileVerified": true,
+  "artifacts": {
+    "hap": {
+      "sha256": "30391637357220ed8e717438641c51b5d7045c628067e68dde4b6aa987dcb4a5",
+      "bytes": 217272292,
+      "officialSignatureVerified": true,
+      "embeddedProfileVerified": true,
+      "embeddedProfileSha256": "653e6f808050170092951958c229117175d11db7931560961531d90cf008f985",
+      "certificateMatches": true
+    },
+    "app": {
+      "sha256": "f232307cd4ba871e08c57f27d1006cb54c8ea5d9c6377785acde801323aab57d",
+      "bytes": 90564443,
+      "officialSignatureVerified": true,
+      "embeddedProfileVerified": true,
+      "embeddedProfileSha256": "653e6f808050170092951958c229117175d11db7931560961531d90cf008f985",
+      "certificateMatches": true
+    }
+  },
+  "hapSha256": "30391637357220ed8e717438641c51b5d7045c628067e68dde4b6aa987dcb4a5",
+  "targetExecuted": false,
+  "appGallerySubmitted": false,
+  "appGalleryPublished": false,
+  "createdAt": "2026-10-15T20:38:58.203Z"
+}

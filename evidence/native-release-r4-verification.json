@@ -1,0 +1,18 @@
+{
+  "bundle": "com.editledger.track1",
+  "version": "1.0.1",
+  "usbRun": "r4",
+  "hapSha256": "30c2addc5590dfd25a3b8ec005d1e685236a24375ca3a9686e7277feae9cb2b7",
+  "literalReplacementObserved": true,
+  "utf8SavedBytes": 39,
+  "utf16LeBomSaveAndReopenObserved": true,
+  "originalRuntimeCreditsLastPage": 174,
+  "ownedProcessReleased": true,
+  "screenshots": {
+    "saved": "d1103d807b230954a650956ed7a35870a78e378064d8246cbaa26cf1890641c4",
+    "reopened": "41384aa7c085afb7968ac142def1e654dbff8b2327c1229c2db822c858181d96",
+    "privacy": "62365dcc36e9772e2400e44e7351c7ac2399d113412ca4509341fef8e279269b",
+    "credits-last": "46c8f04dfa60144d71da4fdbaada5cfc667acd235c87a9f20213e84d5550ef21"
+  },
+  "inputNote": "HDC modifier combination inserted a leading literal a; exact actual content retained in assertions."
+}

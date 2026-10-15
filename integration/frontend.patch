@@ -1,0 +1,234 @@
+diff --git a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/index.html b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/index.html
+index 30226f9..56c58b8 100644
+--- a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/index.html
++++ b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/index.html
+@@ -5 +5 @@
+-  <title>Notepadqq - 轻量级文本编辑器</title>
++  <title>EditLedger - 轻量级文本编辑器</title>
+@@ -8,2 +8,2 @@
+-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
+-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/theme/material-darker.css">
++  <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css">
++  <link rel="stylesheet" href="vendor/codemirror/theme/material-darker.css">
+@@ -83,0 +84 @@
++  <button id="btnSampleUTF16" class="find-btn" style="align-self:flex-start;margin:6px 12px">加载 UTF-16 保真示例</button>
+@@ -103,8 +104,8 @@
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/xml/xml.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/javascript/javascript.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/css/css.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/python/python.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/markdown/markdown.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/clike/clike.min.js"></script>
++  <script src="vendor/codemirror/lib/codemirror.js"></script>
++  <script src="vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
++  <script src="vendor/codemirror/mode/xml/xml.js"></script>
++  <script src="vendor/codemirror/mode/javascript/javascript.js"></script>
++  <script src="vendor/codemirror/mode/css/css.js"></script>
++  <script src="vendor/codemirror/mode/python/python.js"></script>
++  <script src="vendor/codemirror/mode/markdown/markdown.js"></script>
++  <script src="vendor/codemirror/mode/clike/clike.js"></script>
+@@ -112,7 +113,7 @@
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/edit/closebrackets.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/edit/closetag.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/fold/foldcode.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/fold/foldgutter.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/fold/brace-fold.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/search/searchcursor.min.js"></script>
+-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/selection/active-line.min.js"></script>
++  <script src="vendor/codemirror/addon/edit/closebrackets.js"></script>
++  <script src="vendor/codemirror/addon/edit/closetag.js"></script>
++  <script src="vendor/codemirror/addon/fold/foldcode.js"></script>
++  <script src="vendor/codemirror/addon/fold/foldgutter.js"></script>
++  <script src="vendor/codemirror/addon/fold/brace-fold.js"></script>
++  <script src="vendor/codemirror/addon/search/searchcursor.js"></script>
++  <script src="vendor/codemirror/addon/selection/active-line.js"></script>
+diff --git a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/main.js b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/main.js
+index 7e01818..ec5bf93 100644
+--- a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/main.js
++++ b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/main.js
+@@ -1 +1 @@
+-// Notepadqq - 主进程
++// EditLedger - 主进程
+@@ -4,0 +5,2 @@ const path = require('path');
++const fileStore = require('./file-store');
++const crypto = require('crypto');
+@@ -32 +34 @@ function createWindow() {
+-    console.warn('[Notepadqq] 创建窗口失败:', e.message);
++    console.warn('[EditLedger] 创建窗口失败:', e.message);
+@@ -69,0 +72,3 @@ ipcMain.handle('dialog:saveFile', async () => {
++    if (!result.canceled && result.filePath) {
++      result.expectedSha = fileStore.inspect(result.filePath).sha256;
++    }
+@@ -81,2 +86,2 @@ ipcMain.handle('file:read', async (event, filePath) => {
+-    const content = fs.readFileSync(filePath, 'utf-8');
+-    return { success: true, content };
++    const document = fileStore.read(filePath);
++    return { success: true, ...document };
+@@ -89 +94 @@ ipcMain.handle('file:read', async (event, filePath) => {
+-ipcMain.handle('file:write', async (event, filePath, content) => {
++ipcMain.handle('file:write', async (event, filePath, content, format, expectedSha) => {
+@@ -91,2 +96,2 @@ ipcMain.handle('file:write', async (event, filePath, content) => {
+-    fs.writeFileSync(filePath, content, 'utf-8');
+-    return { success: true };
++    const saved = fileStore.save(filePath, content, format, expectedSha);
++    return { success: true, ...saved };
+@@ -101,0 +107,11 @@ ipcMain.handle('file:basename', async (event, filePath) => {
++
++ipcMain.handle('file:sample', async () => {
++  try {
++    const directory = path.join(app.getPath('userData'), 'editledger-samples');
++    fs.mkdirSync(directory, { recursive: true });
++    const filePath = path.join(directory, 'utf16-crlf-' + crypto.randomBytes(8).toString('hex') + '.txt');
++    const format = { encoding: 'utf16le', bom: true, eol: '\r\n', mixed: false };
++    fileStore.save(filePath, '// UTF-16 BOM + CRLF sample\nconst greeting = "甲😀";\n', format, null);
++    return { success: true, filePath, ...fileStore.read(filePath) };
++  } catch(error) { return { success: false, error: error.message }; }
++});
+diff --git a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js
+index 60715f4..15dc82a 100644
+--- a/ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js
++++ b/ohos_hap/web_engine/src/main/resources/resfile/resources/app/renderer.js
+@@ -1 +1 @@
+-// Notepadqq - 渲染进程
++// EditLedger - 渲染进程
+@@ -12,0 +13 @@ let zoomLevel = 100;
++let suppressEditorChanges = false;
+@@ -21 +22 @@ function showConfirm(message) {
+-        <div class="dialog-message">${message}</div>
++        <div class="dialog-message"></div>
+@@ -27,0 +29 @@ function showConfirm(message) {
++    overlay.querySelector('.dialog-message').textContent = message;
+@@ -51 +53 @@ function showAlert(message) {
+-        <div class="dialog-message">${message}</div>
++        <div class="dialog-message"></div>
+@@ -56,0 +59 @@ function showAlert(message) {
++    overlay.querySelector('.dialog-message').textContent = message;
+@@ -75,0 +79 @@ document.addEventListener('DOMContentLoaded', () => {
++  document.getElementById('btnSampleUTF16').addEventListener('click', loadFormatSample);
+@@ -110,0 +115,3 @@ function initEditor() {
++    if (suppressEditorChanges) return;
++    const tab = tabs.find(t => t.id === activeTabId);
++    if (tab) tab.revision++;
+@@ -145,0 +153,4 @@ function createTab(fileName = '无标题', filePath = null, content = '') {
++    revision: 0,
++    saving: false,
++    format: { encoding: 'utf8', bom: false, eol: '\n', mixed: false },
++    sha256: null,
+@@ -158 +169 @@ function createTab(fileName = '无标题', filePath = null, content = '') {
+-    <span class="tab-name">${fileName}</span>
++    <span class="tab-name"></span>
+@@ -160,0 +172 @@ function createTab(fileName = '无标题', filePath = null, content = '') {
++  tabEl.querySelector('.tab-name').textContent = fileName;
+@@ -186 +198,2 @@ function switchTab(tabId) {
+-  editor.setValue(tabData.content);
++  suppressEditorChanges = true;
++  try { editor.setValue(tabData.content); } finally { suppressEditorChanges = false; }
+@@ -246,5 +259 @@ function markTabModified(tabId, modified) {
+-  if (modified && !nameEl.textContent.endsWith('*')) {
+-    nameEl.textContent = tabData.name + '*';
+-  } else if (!modified) {
+-    nameEl.textContent = tabData.name;
+-  }
++  nameEl.textContent = tabData.name + (modified ? '*' : '');
+@@ -257,0 +267,10 @@ async function newFile() {
++async function loadFormatSample() {
++  const sample = await ipcRenderer.invoke('file:sample');
++  if (!sample.success) { await showAlert('样例创建失败: ' + sample.error); return; }
++  const id = createTab(path.basename(sample.filePath), sample.filePath, sample.content);
++  const tab = tabs.find(t => t.id === id);
++  tab.format = sample.format;
++  tab.sha256 = sample.sha256;
++  updateFileStatus(tab);
++}
++
+@@ -280,0 +300,3 @@ async function openFile() {
++  const opened = tabs.find(t => t.id === tabId);
++  opened.format = readResult.format;
++  opened.sha256 = readResult.sha256;
+@@ -292,19 +314,3 @@ async function saveFile() {
+-  const tabData = tabs.find(t => t.id === activeTabId);
+-  if (!tabData) return;
+-  
+-  // 如果是新文件，执行另存为
+-  if (!tabData.path) {
+-    return saveFileAs();
+-  }
+-  
+-  const content = editor.getValue();
+-  const result = await ipcRenderer.invoke('file:write', tabData.path, content);
+-  
+-  if (!result.success) {
+-    showAlert('保存失败: ' + result.error);
+-    return;
+-  }
+-  
+-  tabData.content = content;
+-  markTabModified(activeTabId, false);
+-  updateFileStatus(tabData);
++  const tab = tabs.find(t => t.id === activeTabId);
++  if (!tab) return;
++  return saveCapturedTab(tab, !tab.path);
+@@ -314,27 +320,31 @@ async function saveFileAs() {
+-  const tabData = tabs.find(t => t.id === activeTabId);
+-  if (!tabData) return;
+-  
+-  const result = await ipcRenderer.invoke('dialog:saveFile');
+-  if (result.canceled || !result.filePath) return;
+-  
+-  const filePath = result.filePath;
+-  const fileName = path.basename(filePath);
+-  const content = editor.getValue();
+-  
+-  const writeResult = await ipcRenderer.invoke('file:write', filePath, content);
+-  if (!writeResult.success) {
+-    showAlert('保存失败: ' + writeResult.error);
+-    return;
+-  }
+-  
+-  // 更新标签数据
+-  tabData.path = filePath;
+-  tabData.name = fileName;
+-  tabData.content = content;
+-  
+-  // 更新标签显示
+-  const tabEl = document.querySelector(`.tab[data-tab="${activeTabId}"] .tab-name`);
+-  if (tabEl) tabEl.textContent = fileName;
+-  
+-  markTabModified(activeTabId, false);
+-  updateFileStatus(tabData);
++  const tab = tabs.find(t => t.id === activeTabId);
++  if (!tab) return;
++  return saveCapturedTab(tab, true);
++}
++
++async function saveCapturedTab(tab, choosePath) {
++  if (tab.saving) { await showAlert('该标签正在保存，请稍后再试。'); return; }
++  saveTabState(tab.id);
++  const captured = { id: tab.id, revision: tab.revision, content: tab.content,
++    format: { ...tab.format }, path: tab.path, sha256: tab.sha256 };
++  tab.saving = true;
++  try {
++    if (choosePath) {
++      const selected = await ipcRenderer.invoke('dialog:saveFile');
++      if (selected.canceled || !selected.filePath) return;
++      if (!tabs.includes(tab)) return;
++      captured.path = selected.filePath;
++      captured.sha256 = selected.expectedSha;
++    }
++    const result = await ipcRenderer.invoke('file:write', captured.path,
++      captured.content, captured.format, captured.sha256);
++    if (!result.success) { await showAlert('保存失败: ' + result.error); return; }
++    if (!tabs.includes(tab)) return;
++    tab.path = captured.path;
++    tab.name = path.basename(captured.path);
++    tab.sha256 = result.sha256;
++    tab.format = result.format;
++    // Editing during the await stays dirty. A switch never clears another tab.
++    markTabModified(captured.id, tab.revision !== captured.revision);
++    if (activeTabId === captured.id) updateFileStatus(tab);
++  } finally { tab.saving = false; }
+@@ -676,0 +687,2 @@ function updateFileStatus(tabData) {
++  const format = tabData.format;
++  document.getElementById('status-encoding').textContent = format.encoding.toUpperCase() + (format.bom ? ' BOM' : '') + ' / ' + (format.mixed ? '混合换行（保存前需规范化）' : format.eol === '\r\n' ? 'CRLF' : format.eol === '\r' ? 'CR' : 'LF');

@@ -1,0 +1,19 @@
+{
+  "passed": 12,
+  "total": 12,
+  "cases": [
+    "initial view does not write",
+    "edit marks dirty",
+    "find selects literal text",
+    "replace all updates both occurrences",
+    "UTF16 requests BOM",
+    "successful save is acknowledged",
+    "cancelled discard keeps document",
+    "failed save keeps dirty state",
+    "edit while saving remains dirty",
+    "reopen restores actual saved snapshot",
+    "privacy and full runtime notices coexist with editor",
+    "full Credits last page accessible"
+  ],
+  "scope": "Actual CodeMirror, new workspace and notices scripts in jsdom; controlled IPC"
+}

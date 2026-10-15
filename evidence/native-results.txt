@@ -1,0 +1,5 @@
+START node=20.18.1 electron=0.0.0-no-git-tag-found
+CODEC|passed=21|total=21
+STORE|passed=11|total=11
+SAVE_BINDING|passed=6|total=6
+GUI_SAVE|{"sameSha":true,"encoding":"utf16le","bom":true,"crlf":true}
