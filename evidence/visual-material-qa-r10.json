@@ -1,0 +1,20 @@
+{
+  "sourceScreens": [
+    "gui-r10-saved.png",
+    "gui-r10-copied.png",
+    "gui-r10-privacy.png"
+  ],
+  "sourceIsActualUsbUi": true,
+  "videoFramesVisuallyChecked": [
+    2,
+    51,
+    77
+  ],
+  "videoShowsMaximizedApp": true,
+  "noDesktopContentInInspectedFrames": true,
+  "sha256": {
+    "store-1.png": "a567832c89bc04e0f04dec36aa12e9ce7c8231818f396a236b02238f2c8b182f",
+    "store-2.png": "a3efa41aac838a75dd915cb359f8d9c4401a73dfef64db51871e0514556e4aa5",
+    "store-3.png": "1484810945e13f2c389d05e8d4fc7549a47d2fa64f6c08c78b9955533a436b47"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "rawSha256": "e55f7d1610732c32ddee7f052dc7d69325675e41ad004229b5c8272e5e7d48ad",
+  "output": "EditLedger-1.0.2-clipboard-review.mp4",
+  "sha256": "0372293506c9d5349b8c83ca0e2061ffba7bc7ef915bda8f6d572e10ae9f7876",
+  "bytes": 851530,
+  "durationSeconds": 103.2,
+  "noAudioStreamVerified": true,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "nativeRecording": true,
+  "continuousOperationRecording": true,
+  "syntheticUiFrames": false,
+  "trimStartSeconds": 36,
+  "maximizedAtVisibleTimerSeconds": 35,
+  "transform": "Leading maximization setup trimmed; audio and system dock removed; app aspect preserved with plain padding;25fps",
+  "qaFrames": [
+    2,
+    25,
+    51,
+    77,
+    101
+  ]
+}

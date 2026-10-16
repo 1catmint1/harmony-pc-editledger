@@ -2,20 +2,21 @@
   "bundle": "com.editledger.track1",
   "publicSourceMatchesPackagedApp": true,
   "files": 34,
-  "bytes": 23055810,
+  "bytes": 23059120,
   "permissions": [
-    "ohos.permission.PREPARE_APP_TERMINATE"
+    "ohos.permission.PREPARE_APP_TERMINATE",
+    "ohos.permission.READ_PASTEBOARD"
   ],
   "sha256": {
     "file-codec.js": "f9470131993f513f9827930880fc65cb0e99f60bdb607423d6dcf74ec3f89751",
     "file-store.js": "09a8f0940b0eef71f7d5e5f75c9e8c6bf2bb6f1dc95af5c7c7155b7a1d2e1201",
-    "index.html": "c37b708a97f7415c3ea68598117a458282ad77702892d3b8a9845e47927f4bc5",
+    "index.html": "fb00e6d18e9f8f561fc0a990746ec8ff0e16e0039f654df04e33f58570aea926",
     "LICENSE": "b375d8b701c1405eefaf823593f323ec0626248088e9f766769a31072261b361",
-    "main.js": "5ff19b06ced87a81c7f1e3643aa9ba10dbdc6cb7ead8423cf4b898b7fcc4be75",
-    "package.json": "c8d0277e323f3649080ed02426c95bae482b9fcc4b82ae6030718e7660734030",
+    "main.js": "1bbf0231115d82f1377ed623797f302f232dd7fa8400b29420dc926f998c05f3",
+    "package.json": "baa95b748263bff31f4b679017865273734f50e70ad828b757e6eed54b6d93a1",
     "release-notices.js": "21c084b0937914e5d3ce7ec189ccdd4b975ca77591bbc9d84e032d7970b42434",
     "workspace.css": "4c9c378490a4159c4f4f115060b8aaa96a29fdf769f83aa19c5697dee151aff4",
-    "workspace.js": "032cba7084198e3f1eb43745115a585c575a190e3039a75f7d2e5924f68d83ec",
+    "workspace.js": "e1b03c7014c6fe486a1adacc6ad59a0569a3ee770e52e5754d9371885ff4d8f1",
     "legal/CHROMIUM-LICENSE.txt": "51b174f5dbf6859bdff0cd4d45b71c6cc21681df17ece083e487562727c81b49",
     "legal/COPYING.LGPLv2.1": "92a759ec0febde4750821736bbde642a3b835c0604fc81bee62f9e428f86981f",
     "legal/CREDITS.txt": "86a846773709ce5bfd77bb3f174514063c43346f76164183900307206a923462",
@@ -25,7 +26,7 @@
     "legal/LICENSES.chromium.html": "7b748bde9feea820f3180d4fe337daa1bb2fcff9303ad912d1d1c817426d01c5",
     "legal/reflect-metadata-CopyrightNotice.txt.txt": "19246466cb51e46c12b22e43b4d2703ac981cb4295d061d6e20609bd5845510b",
     "legal/reflect-metadata-LICENSE.txt": "c5217b0544ea9c91d010863582d6f6b35ec50e4146c34dee085ddcec5dd92def",
-    "legal/THIRD_PARTY_NOTICES.txt": "382dd8b52193f1acd3b69b65120b89a9ede50df6d744ac4db67f46e0961f5820",
+    "legal/THIRD_PARTY_NOTICES.txt": "4c9d2b3a72e2ee521827c6e7d9de836e100f77d05d118a3276f01d3e1e8a7a2f",
     "vendor/codemirror/LICENSE": "168a4becc968f5001e2ee2e0291b6e4daabafc1894a11ade1e11d56e96096e07",
     "vendor/codemirror/lib/codemirror.css": "eb494ea972d2661ef86f7f6ac656dd6786d721e49c9c1b46e1eb967e4b6f9bf3",
     "vendor/codemirror/lib/codemirror.js": "0644e6418c4129c9584b9b772b8b8bdb0b4fbab1efd848a98baf1fe147381f22",
@@ -42,5 +43,5 @@
     "vendor/codemirror/addon/fold/foldgutter.js": "5f8b148eb046f946dac3a22b4534fd30ebca826223dfe291a49345b9e2cb400f",
     "vendor/codemirror/addon/selection/active-line.js": "3afbcf78835c9bdc342e3992c53d9b74286722613bb1a8adc9d140edc8737ee8"
   },
-  "createdAt": "2026-10-15T20:32:13.906949+00:00"
+  "createdAt": "2026-10-16T14:25:46.853167+00:00"
 }

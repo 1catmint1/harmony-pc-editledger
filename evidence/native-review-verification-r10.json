@@ -1,0 +1,17 @@
+{
+  "bundle": "com.editledger.track1",
+  "version": "1.0.2",
+  "usbRun": "r10",
+  "hapSha256": "fa3eb06794b7d86216193ae40402c52382694e0de04446cf4060393f10dddbb0",
+  "toolbarCopyCutPaste": true,
+  "ctrlACXVSequence": true,
+  "savedClipboardBytes": 29,
+  "clipboardSaveAndReopenExact": true,
+  "originalDocumentRestoredHashEqual": true,
+  "privacyClipboardPurposeVisible": true,
+  "completeRuntimeCreditsLastPage": 174,
+  "signatureVerified": true,
+  "sameBootPidUidBound": true,
+  "scope": "USB development-signed release-mode candidate; formal signature payload comparison follows",
+  "createdAt": "2026-10-16T14:25:40.238Z"
+}

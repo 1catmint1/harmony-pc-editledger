@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-(()=>{'use strict';const {ipcRenderer}=require('electron'),$=id=>document.getElementById(id),editor=CodeMirror.fromTextArea($('editor'),{lineNumbers:true,lineWrapping:false,indentUnit:2,tabSize:2,mode:'text/plain'});let dirty=false,loading=false,saving=false,current=null,stamp=null,mixed=false,revision=0,docId=0;
+(()=>{'use strict';const {ipcRenderer,clipboard}=require('electron'),$=id=>document.getElementById(id),editor=CodeMirror.fromTextArea($('editor'),{lineNumbers:true,lineWrapping:false,indentUnit:2,tabSize:2,mode:'text/plain'});let dirty=false,loading=false,saving=false,current=null,stamp=null,mixed=false,revision=0,docId=0;
 const status=(text,bad=false)=>{$('status').textContent=text;$('status').className=bad?'error':'';};
 function mark(){dirty=true;revision++;$('dirty').textContent='有未保存的修改';}
 function format(){return {encoding:$('encoding').value,bom:$('bom').checked,eol:{lf:'\n',crlf:'\r\n',cr:'\r'}[$('eol').value],mixed};}
@@ -14,5 +14,48 @@ $('save').onclick=async()=>{if(saving)return;const name=$('filename').value.trim
 $('reopen').onclick=()=>current?open(current):status('请先保存文稿');
 $('find-next').onclick=()=>{const q=$('find').value;if(!q)return;const text=editor.getValue(),from=editor.indexFromPos(editor.getCursor('to'));let p=text.indexOf(q,from);if(p<0)p=text.indexOf(q);if(p<0){status('没有找到匹配文本');return;}editor.setSelection(editor.posFromIndex(p),editor.posFromIndex(p+q.length));editor.focus();status('已定位匹配文本');};
 $('replace-all').onclick=()=>{const q=$('find').value;if(!q)return;const text=editor.getValue(),parts=text.split(q),count=parts.length-1;if(count){editor.setValue(parts.join($('replace').value));}status('已替换 '+count+' 处');};
+
+function editCommand(command){
+ try {
+  if(command==='a'){editor.execCommand('selectAll');status('已全选文稿');}
+  else if(command==='c'||command==='x'){
+   const selected=editor.getSelection();if(!selected){status('请先选择文本');return;}
+   clipboard.writeText(selected);if(command==='x')editor.replaceSelection('','around','cut');
+   status(command==='x'?'已剪切所选文本':'已复制所选文本');
+  }else if(command==='v'){
+   const text=clipboard.readText();if(!text){status('剪贴板中没有可粘贴的文本');return;}
+   editor.replaceSelection(text,'end','paste');status('已粘贴文本');
+  }else return;
+  editor.focus();
+ }catch(error){status('编辑操作未完成：'+error.message,true);}
+}
+for(const [id,key] of [['edit-select-all','a'],['edit-copy','c'],['edit-cut','x'],['edit-paste','v']])$(id).addEventListener('click',()=>editCommand(key));
+let controlHeld=false;
+document.addEventListener('keydown',event=>{
+ if(event.key==='Control'){controlHeld=true;return;}
+ const key=event.key.toLowerCase();
+ if((event.ctrlKey||event.metaKey||controlHeld)&&!event.altKey&&['a','c','x','v'].includes(key)&&event.target.closest?.('.CodeMirror')){
+  event.preventDefault();event.stopImmediatePropagation();editCommand(key);
+ }
+},true);
+document.addEventListener('keyup',event=>{if(event.key==='Control')controlHeld=false;},true);
+window.addEventListener('blur',()=>controlHeld=false);
+ipcRenderer.on('editor:shortcut',(_event,key)=>{
+ if(!['a','c','x','v'].includes(key))return;
+ const target=document.activeElement;
+ if(target?.closest('.CodeMirror')){editCommand(key);return;}
+ if(target?.matches('input:not([type=checkbox]),textarea')&&typeof target.selectionStart==='number'){
+  try{
+   if(key==='a')target.select();
+   else if(key==='c'||key==='x'){
+    const selected=target.value.slice(target.selectionStart,target.selectionEnd);
+    if(selected){clipboard.writeText(selected);if(key==='x'){target.setRangeText('');target.dispatchEvent(new Event('input',{bubbles:true}));}}
+   }else if(key==='v'){
+    target.setRangeText(clipboard.readText(),target.selectionStart,target.selectionEnd,'end');target.dispatchEvent(new Event('input',{bubbles:true}));
+   }
+  }catch(error){status('编辑操作未完成：'+error.message,true);}
+ }else if(key==='c'){const selected=window.getSelection()?.toString();if(selected)clipboard.writeText(selected);}
+});
+
 window.addEventListener('beforeunload',e=>{if(dirty&&!confirm('文稿尚未保存。关闭并放弃修改？'))e.returnValue=false;});formatView();list();
 })();

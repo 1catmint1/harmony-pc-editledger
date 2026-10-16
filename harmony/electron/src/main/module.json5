@@ -32,30 +32,11 @@
         "skills": [
           {
             "entities": [
-              "entity.system.home",
-              "entity.system.browsable"
+              "entity.system.home"
             ],
             "actions": [
-              "action.system.home",
-              "ohos.want.action.viewData"
-            ],
-            "uris": []
-          },
-          {
-            "actions": [
-              "ohos.want.action.viewData"
-            ],
-            "uris": [
-              {
-                "scheme": "link"
-              }
+              "action.system.home"
             ]
-          }
-        ],
-        "metadata": [
-          {
-            "name": "ohos.ability.shortcuts",
-            "resource": "$profile:shortcuts_config"
           }
         ]
       },
@@ -76,13 +57,14 @@
           }
         ],
         "process": ":browser",
-        "icon": "$media:editledger_icon"
+        "icon": "$media:editledger_icon",
+        "label": "$string:EntryAbility_label"
       },
       {
         "name": "StatelessAbility",
         "srcEntry": "./ets/entryability/StatelessAbility.ets",
         "description": "$string:StatelessAbility_desc",
-        "label": "$string:StatelessAbility_label",
+        "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:editledger_icon",
         "startWindowBackground": "$color:start_window_background",
         "launchType": "specified",
@@ -111,6 +93,17 @@
     "requestPermissions": [
       {
         "name": "ohos.permission.PREPARE_APP_TERMINATE"
+      },
+      {
+        "name": "ohos.permission.READ_PASTEBOARD",
+        "reason": "$string:pasteboard_reason",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility",
+            "BrowserAbility"
+          ],
+          "when": "inuse"
+        }
       }
     ]
   }

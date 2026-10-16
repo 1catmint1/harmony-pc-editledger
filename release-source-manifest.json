@@ -1,8 +1,13 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "newFrontendLicense": "MIT",
   "codeMirror": "5.65.16 MIT",
   "upstream": "af84f88a6c4360937b9eefca5a59ba1d39603cd8",
   "filesBinding": "evidence/packaged-app-source-binding.json",
-  "runtimeLibraries": "evidence/native-assets.json"
+  "runtimeLibraries": "evidence/native-assets.json",
+  "reviewRepair": {
+    "clipboardPermission": "ohos.permission.READ_PASTEBOARD",
+    "clipboardReads": "user initiated paste only",
+    "inheritedExternalShortcutRemoved": true
+  }
 }

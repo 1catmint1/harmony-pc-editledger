@@ -47,6 +47,10 @@
     {
       "name": "OpenNewWindow_label",
       "value": "OpenNewWindow"
+    },
+    {
+      "name": "pasteboard_reason",
+      "value": "用于将您主动复制的文本粘贴到文稿。"
     }
   ]
 }

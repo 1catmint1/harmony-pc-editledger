@@ -31,6 +31,10 @@
     {
       "name": "OpenNewWindow_label",
       "value": "OpenNewWindow"
+    },
+    {
+      "name": "pasteboard_reason",
+      "value": "Paste text you copied into the current document."
     }
   ]
 }
