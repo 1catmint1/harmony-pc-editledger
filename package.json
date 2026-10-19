@@ -1,12 +1,13 @@
 {
   "name": "editledger-notepadqq-adaptation-layer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "license": "MIT",
   "description": "HarmonyOS PC local document editor with encoding-aware file persistence",
   "scripts": {
     "test": "node tests/test-codec.cjs && node tests/test-store.cjs && node tests/test-save-binding.cjs",
-    "test:ui": "node tests/test-release-ui.cjs"
+    "test:ui": "node tests/test-release-ui.cjs",
+    "test:shortcuts": "node tests/test-main-shortcuts.cjs"
   },
   "devDependencies": {
     "json5": "2.2.3",

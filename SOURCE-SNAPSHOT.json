@@ -1,12 +1,12 @@
 {
   "product": "EditLedger",
   "sourceRepository": "https://atomgit.com/2301_80739235/editledger-notepadqq-adaptation",
-  "sourceCommit": "43678584c14c894dccba17a68e960ca703d4c5da",
+  "sourceCommit": "58999809b870eae9bebaa9a3e725c9e53533e659",
   "sourceSelection": [
     "current committed source tree"
   ],
   "runtimeArtifactsExcluded": true,
   "privateSigningExcluded": true,
-  "preparedAt": "2026-10-16T14:47:30.466702+00:00",
-  "version": "1.0.2"
+  "preparedAt": "2026-10-19T12:38:12.199517+00:00",
+  "version": "1.0.3"
 }

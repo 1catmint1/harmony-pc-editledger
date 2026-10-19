@@ -1,0 +1,94 @@
+{
+  "passed": 12,
+  "total": 12,
+  "cases": [
+    {
+      "scope": "editor",
+      "input": {
+        "key": "a",
+        "control": true
+      },
+      "intercepted": true
+    },
+    {
+      "scope": "editor",
+      "input": {
+        "key": "z",
+        "control": true
+      },
+      "intercepted": true
+    },
+    {
+      "scope": "text",
+      "input": {
+        "key": "z",
+        "control": true
+      },
+      "intercepted": false
+    },
+    {
+      "scope": "text",
+      "input": {
+        "key": "y",
+        "control": true
+      },
+      "intercepted": false
+    },
+    {
+      "scope": "text",
+      "input": {
+        "key": "v",
+        "control": true
+      },
+      "intercepted": true
+    },
+    {
+      "scope": "notice",
+      "input": {
+        "key": "a",
+        "control": true
+      },
+      "intercepted": false
+    },
+    {
+      "scope": "notice",
+      "input": {
+        "key": "c",
+        "control": true
+      },
+      "intercepted": false
+    },
+    {
+      "scope": "editor",
+      "input": {
+        "key": "a",
+        "control": true,
+        "meta": true
+      },
+      "intercepted": false
+    },
+    {
+      "scope": "editor",
+      "input": {
+        "key": "v",
+        "control": true,
+        "alt": true
+      },
+      "intercepted": false
+    },
+    {
+      "scope": "editor",
+      "input": {
+        "control": true
+      },
+      "intercepted": false
+    },
+    {
+      "foreignSenderIgnored": true
+    },
+    {
+      "workspaceLoadsAfterItsControls": true
+    }
+  ],
+  "scope": "Actual Electron main handler in controlled window/IPC runtime; parse order check"
+}

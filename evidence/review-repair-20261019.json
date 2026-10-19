@@ -1,0 +1,62 @@
+{
+  "product": "EditLedger",
+  "version": "1.0.3",
+  "hostChecks": {
+    "codec": 21,
+    "fileStore": 11,
+    "asyncSaveBinding": 6,
+    "mainShortcuts": 12,
+    "codeMirrorUi": 56
+  },
+  "native": {
+    "bundle": "com.editledger.track1",
+    "version": "1.0.3",
+    "usbRun": "r12",
+    "hapSha256": "01eb454ae66c0d96c5e1c5dfbd03cefdca1817b8e5f639b892f0968b0ba8df58",
+    "syntaxChanges": 15,
+    "syntaxModes": [
+      "text/plain",
+      "javascript",
+      "python",
+      "markdown",
+      "css"
+    ],
+    "sameBodyAfterEverySyntaxChange": true,
+    "ctrlACXV": true,
+    "ctrlUndoRedoShiftRedo": true,
+    "ctrlSaveFindReplaceNew": true,
+    "utf16LeBeBomSaveBytes": 36,
+    "utf8BomSaveBytes": 20,
+    "finalSavedBytes": 17,
+    "savedFileReadbackExact": true,
+    "reopenExact": true,
+    "originalDocumentHashPreserved": true,
+    "privacyClipboardPurposeVisible": true,
+    "completeRuntimeCreditsLastPage": 174,
+    "sameBootPidUidBound": true,
+    "previousRunR11Accepted": false,
+    "scope": "Development-signed release-mode candidate on bound USB; formal signature payload comparison follows",
+    "createdAt": "2026-10-19T12:25:34.405734+00:00"
+  },
+  "formalAppSha256": "e895985969c87b06903fdd7fa1ff3c267a0e6455c5d8c426799d200ec4ec2b9b",
+  "equalRuntimePayloadFiles": 57,
+  "sourceFrontendFiles": 35,
+  "video": {
+    "nativeRecording": true,
+    "usbRun": "r12",
+    "sourceSha256": "8088e56d8c0a885aabff0ca4bff0dc02fddb04c1befb497bc71ebb341adb5134",
+    "output": "EditLedger-1.0.3-native-review-r2.mp4",
+    "sha256": "89a6d5ec0cca735489e45c13090c3751a094199e67703de72398e191a38f899a",
+    "bytes": 1631992,
+    "durationSeconds": 95.0,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "noAudioStream": true,
+    "syntheticUiFrames": false,
+    "transform": "Three actual native excerpts: five syntax modes, Ctrl editing/save, reopen and full notices; idle gaps, audio and dock removed; app aspect preserved;15fps",
+    "qaFrames": 6
+  },
+  "createdAt": "2026-10-19T12:36:46.103746+00:00"
+}

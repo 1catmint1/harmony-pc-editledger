@@ -1,0 +1,17 @@
+{
+  "nativeRecording": true,
+  "usbRun": "r12",
+  "sourceSha256": "8088e56d8c0a885aabff0ca4bff0dc02fddb04c1befb497bc71ebb341adb5134",
+  "output": "EditLedger-1.0.3-native-review-r2.mp4",
+  "sha256": "89a6d5ec0cca735489e45c13090c3751a094199e67703de72398e191a38f899a",
+  "bytes": 1631992,
+  "durationSeconds": 95.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "noAudioStream": true,
+  "syntheticUiFrames": false,
+  "transform": "Three actual native excerpts: five syntax modes, Ctrl editing/save, reopen and full notices; idle gaps, audio and dock removed; app aspect preserved;15fps",
+  "qaFrames": 6
+}

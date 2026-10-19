@@ -1,0 +1,10 @@
+{
+  "files": 298,
+  "bytes": 41819112,
+  "archiveSha256Verified": true,
+  "noPrivateSigning": true,
+  "noDeviceIdentifier": true,
+  "noExecutableMagic": true,
+  "noRuntimeBinaries": true,
+  "scope": "Bounded source tree and exact external publication documents"
+}

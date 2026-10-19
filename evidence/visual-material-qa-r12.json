@@ -1,0 +1,35 @@
+{
+  "screenshots": [
+    {
+      "file": "store-1.png",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "362bde8c872452cbf8d244560c7d5ba9705567ea60c80e8c6999630f7fc8c385",
+      "nativeUiVisuallyInspected": true
+    },
+    {
+      "file": "store-2.png",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "6315a9387de7435f93bb17f4e67634ec27cf5860174d985c87e2bb6b70ffbf3e",
+      "nativeUiVisuallyInspected": true
+    },
+    {
+      "file": "store-3.png",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "a885a5dbc84f22413d758c2a8e8f0ea2e6e68c504e366782d54e38868546e89d",
+      "nativeUiVisuallyInspected": true
+    }
+  ],
+  "videoContactSheetInspected": true,
+  "audioRemoved": true,
+  "systemDockRemoved": true,
+  "syntheticUiFrames": false
+}

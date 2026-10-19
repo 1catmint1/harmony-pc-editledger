@@ -1,0 +1,30 @@
+{
+  "bundle": "com.editledger.track1",
+  "version": "1.0.3",
+  "usbRun": "r12",
+  "hapSha256": "01eb454ae66c0d96c5e1c5dfbd03cefdca1817b8e5f639b892f0968b0ba8df58",
+  "syntaxChanges": 15,
+  "syntaxModes": [
+    "text/plain",
+    "javascript",
+    "python",
+    "markdown",
+    "css"
+  ],
+  "sameBodyAfterEverySyntaxChange": true,
+  "ctrlACXV": true,
+  "ctrlUndoRedoShiftRedo": true,
+  "ctrlSaveFindReplaceNew": true,
+  "utf16LeBeBomSaveBytes": 36,
+  "utf8BomSaveBytes": 20,
+  "finalSavedBytes": 17,
+  "savedFileReadbackExact": true,
+  "reopenExact": true,
+  "originalDocumentHashPreserved": true,
+  "privacyClipboardPurposeVisible": true,
+  "completeRuntimeCreditsLastPage": 174,
+  "sameBootPidUidBound": true,
+  "previousRunR11Accepted": false,
+  "scope": "Development-signed release-mode candidate on bound USB; formal signature payload comparison follows",
+  "createdAt": "2026-10-19T12:25:34.405734+00:00"
+}

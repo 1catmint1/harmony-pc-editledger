@@ -1,0 +1,35 @@
+{
+  "bundle": "com.editledger.track1",
+  "version": "1.0.3",
+  "type": "release",
+  "distributionType": "app_gallery",
+  "noDeviceBinding": true,
+  "allowedAcls": [
+    "ohos.permission.READ_PASTEBOARD"
+  ],
+  "signatureVerified": true,
+  "profileVerified": true,
+  "artifacts": {
+    "hap": {
+      "sha256": "03c1ad6739ae235f9817a38cfd90c56852113b452f1e4e3e24b2b0d31394083e",
+      "bytes": 217280521,
+      "officialSignatureVerified": true,
+      "embeddedProfileVerified": true,
+      "embeddedProfileSha256": "cdcbe524aa3dc2c703afe016f8324ec7e4475515385a6e4322af39b0f32f3607",
+      "certificateMatches": true
+    },
+    "app": {
+      "sha256": "e895985969c87b06903fdd7fa1ff3c267a0e6455c5d8c426799d200ec4ec2b9b",
+      "bytes": 90572103,
+      "officialSignatureVerified": true,
+      "embeddedProfileVerified": true,
+      "embeddedProfileSha256": "cdcbe524aa3dc2c703afe016f8324ec7e4475515385a6e4322af39b0f32f3607",
+      "certificateMatches": true
+    }
+  },
+  "hapSha256": "03c1ad6739ae235f9817a38cfd90c56852113b452f1e4e3e24b2b0d31394083e",
+  "targetExecuted": false,
+  "appGallerySubmitted": false,
+  "appGalleryPublished": false,
+  "createdAt": "2026-10-19T12:29:27.754Z"
+}
